@@ -1,0 +1,110 @@
+/* Global */
+/* ------------------------------------ */
+* , *::before, *::after {
+    outline: 1px dotted red;
+    box-sizing: border-box;
+}
+
+/* Header */
+/* ------------------------------------ */
+#topHeader {
+    padding-top: 15px;
+    padding-bottom: 16px;
+    color: whitesmoke;
+    background-color: #be4d25;
+    font-family: 'Lato', sans-serif;
+}
+
+#regTradeMark{
+    font-size: 15px;
+}
+
+/* Root CSS Varibles HSL Colors */
+/* ------------------------------------ */
+:root {
+    --hue-neutral: 200;
+    --hue-wrong: 0;
+    --hue-correct: 145;
+}
+
+/* Body */
+/* ------------------------------------ */
+body {
+    --hue: var(--hue-neutral);
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(var(--hue),100%, 20%);
+}
+
+/* Change the backgroud color of board to Green for Correct */
+body.correct{
+    --hue: var(--hue-correct);
+}
+
+/* Change the backgroud color of board to Red for Wrong */
+body.wrong{
+    --hue: var(--hue-wrong);
+}
+
+
+/* Gameboard */
+/* ------------------------------------ */
+#gameBoard {
+    --hue: var(--hue-neutral);
+    margin-top: 5%;
+    margin-bottom: 6%;
+    width: 800px;
+    max-width: 80%;
+    height: 600px;
+    top: 50%;
+    position: relative;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+    /* background-color: hsl(var(--hue), 100%, 20%); */
+}
+
+/* ------------------------------------ */
+/* Change the backgroud color of board to Green for Correct */
+/* #gameBoard.correct{
+    --hue: var(--hue-correct); */
+/* } */
+/* Change the backgroud color of board to Red for Wrong */
+/* #gameBoard.wrong{
+    --hue: var(--hue-wrong);
+} */
+/* ------------------------------------ */
+
+
+/* Answer Grid */
+/* ------------------------------------ */
+.btn {
+    font-family: 'Lato', sans-serif;
+}
+/* Canvas */
+/* ------------------------------------ */
+/* #canvas { */
+    /* margin-top: 5%;
+    margin-bottom: 6%;
+    width: 900px;
+    height: 600px;
+    left: 9%;
+    top: 50%; */
+    /* transform: translate(1px, 1px); */
+    /* position: relative; */
+/* } */
+
+/* Footer */
+/* ------------------------------------ */
+#footer {
+    padding-top: 10px;
+    padding-bottom: 21px;
+    color: whitesmoke;
+    background-color: #be4d25;
+    font-family: 'Lato', sans-serif;
+}
