@@ -11,7 +11,7 @@
     padding-top: 15px;
     padding-bottom: 16px;
     color: whitesmoke;
-    background-color: #be4d25;
+    background-color: #b26a50;
     font-family: 'Lato', sans-serif;
 }
 
@@ -83,9 +83,68 @@ body.wrong{
 
 /* Answer Grid */
 /* ------------------------------------ */
+/* Buttons */
+.btn-grid {
+    /* Put answers in grid */
+    display: grid;
+    /* Puts Answers side by side in two columns */
+    grid-template-columns: repeat(2, auto);
+    /* Puts gap between grid */
+    gap: 10px;
+    margin: 20px 0;
+}
+
 .btn {
     font-family: 'Lato', sans-serif;
+    --hue: var(--hue-neutral);
+    border: 1px solid hsl(var(--hue),100%, 30%);
+    background-color: hsl(var(--hue),100%, 20%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: whitesmoke;
+    outline: none;
 }
+
+.btn:hover {
+    border-color: black;
+}
+
+.btn.correct {
+    --hue: var(--hue-correct);
+    /* color:#b26a50; */
+    color: black;
+}
+
+.btn.wrong {
+    --hue: var(--hue-wrong);
+}
+
+/* Buttons Under Controls */
+/* ------------------------------------ */
+.start-btn {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.next-btn {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
+
+
+
 /* Canvas */
 /* ------------------------------------ */
 /* #canvas { */
@@ -105,6 +164,6 @@ body.wrong{
     padding-top: 10px;
     padding-bottom: 21px;
     color: whitesmoke;
-    background-color: #be4d25;
+    background-color: #b26a50;
     font-family: 'Lato', sans-serif;
 }
