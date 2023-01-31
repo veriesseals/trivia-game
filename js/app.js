@@ -8,6 +8,7 @@ class Trivia {
         this.answerButtonsElement = document.getElementById('answer-buttons');
         this.questionElement = document.getElementById('question');
         this.answerButtonsElement = document.getElementById('answer-buttons');
+        let shuffledQuestions, currentQuestionIndex; // Variables to be used later
 
         // Array of Questions
         // Each Question is an Object
@@ -38,12 +39,18 @@ class Trivia {
             this.startGame();
         });
 
-        this.shuffledQuestions
-        this.currentQuestionIndex; // Variables to be used later
+        // Add Event Listener to Next Button
+        this.nextButton.addEventListener('click', () => {
+            this.setNextQuestion();
+        });
+
+        this.shuffledQuestions;
+        this.currentQuestionIndex;
     }
 
     
 
+    
     // Start Game Method
     // This method will be called when the start button is clicked
     // ----------------------------------------------------
@@ -60,6 +67,19 @@ class Trivia {
     // ----------------------------------------------------
     setNextQuestion() {
         this.showQuestion(this.shuffledQuestions[currentQuestionIndex]);
+        
+    }
+    
+    // Show Question Method
+    showQuestion(question) {
+        // ----------------------------------------------------
+        this.questionElement.innerText = question.question;
+    }
+    
+    // Select Answer Method
+    // ----------------------------------------------------
+    selectAnswer() {
+        
     }
 
     
