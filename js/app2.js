@@ -45,19 +45,17 @@ function startGame() {
     questionContainerElement.classList.remove('hide');
     // call the setNextQUestion() function ro show 1st Question.
     setNextQuestion();
-
 }
 
 function setNextQuestion() {
     // Create a reset State method to remove the previous answers
     resetState()
-
-
     // Use method Show Question to show the Shuffled Questions from the Current Question Index
     showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 
 // Create Show Question Function and pass in the question Array
+// ---------------------------------------------------------------
 function showQuestion(question) {
     questionElement.innerText = question.question;
     // Loop through answers by using a ForeEach Loop
@@ -78,6 +76,7 @@ function showQuestion(question) {
 }
 
 // Reset 
+// ---------------------------------------------------------------
 function resetState() {
     // Resets background color to default each question
     clearStatusClass(document.body)
@@ -133,53 +132,303 @@ function clearStatusClass (element) {
 // Array of Questions
 const questions = [
     {
-        question: 'What is 2+2?',
+        question: 'Norma Jean Mortenson was the birth name of which movie star?',
         // Array of Answers
         answers: [
-            {text: '4', correct: true},
-            {text: '22', correct: false},
-            {text: '92', correct: false},
-            {text: '82', correct: false}
+            {text: 'Billy Holiday', correct: false},
+            {text: 'Nancy Reagan', correct: false},
+            {text: 'Marilyn Monroe ', correct: true},
+            {text: 'Doris Day', correct: false}
         ]
     },
     {
-        question: 'What is 4+4?',
+        question: 'What is the single-word title of the famous novel by Alex Haley?',
         // Array of Answers
         answers: [
-            {text: '8', correct: true},
-            {text: '452', correct: false},
-            {text: '92', correct: false},
-            {text: '82', correct: false}
+            {text: 'Flowers', correct: false},
+            {text: 'Roots', correct: true},
+            {text: 'Willow', correct: false},
+            {text: 'Orchid', correct: false}
         ]
     },
     {
-        question: 'What is 6+4?',
+        question: 'Rattlesnakes are native to which continent?',
         // Array of Answers
         answers: [
-            {text: '10', correct: true},
-            {text: '52', correct: false},
-            {text: '92', correct: false},
-            {text: '82', correct: false}
+            {text: 'South America', correct: false},
+            {text: 'Europe', correct: false},
+            {text: 'Africa', correct: false},
+            {text: 'North America ', correct: true}
         ]
     },
     {
-        question: 'What is 24+4?',
+        question: 'Jazz and Civic are models from which car company?',
         // Array of Answers
         answers: [
-            {text: '28', correct: true},
-            {text: '277', correct: false},
-            {text: '92', correct: false},
-            {text: '82', correct: false}
+            {text: 'Ford', correct: false},
+            {text: 'Honda', correct: true},
+            {text: 'Chevrolet', correct: false},
+            {text: 'Toyota', correct: false}
         ]
     },
     {
-        question: 'Voodoo beliefs originated in which Caribbean island nation?',
+        question: 'Queen Elizabeth II is linked with which breed of dog?',
         // Array of Answers
         answers: [
-            {text: 'Haiti', correct: true},
+            {text: 'Goldendoodle', correct: false},
+            {text: 'Labrador', correct: false},
+            {text: 'Corgi ', correct: true},
+            {text: 'Cane Corso', correct: false}
+        ]
+    },
+    {
+        question: 'Uncle Sam is the personification of which country?',
+        // Array of Answers
+        answers: [
+            {text: 'United States', correct: true},
+            {text: 'Cuba', correct: false},
             {text: 'Canada', correct: false},
-            {text: 'Louisiana', correct: false},
-            {text: 'Africa', correct: false}
+            {text: 'Brazil', correct: false}
+        ]
+    },
+    {
+        question: 'Which word can come after baby, bridal, and meteor?',
+        // Array of Answers
+        answers: [
+            {text: 'Party', correct: false},
+            {text: 'Monitor', correct: false},
+            {text: 'Registry', correct: false},
+            {text: 'Shower', correct: true}
+        ]
+    },
+    {
+        question: 'Which bird is often used as a symbol of peace?',
+        // Array of Answers
+        answers: [
+            {text: 'Pigeon', correct: false},
+            {text: 'Dove', correct: true},
+            {text: 'Hawk', correct: false},
+            {text: 'Eagle', correct: false}
+        ]
+    },
+    {
+        question: 'Only one chess piece can only move diagonally - which is it?',
+        // Array of Answers
+        answers: [
+            {text: 'Knight', correct: false},
+            {text: 'Rook', correct: false},
+            {text: 'Bishop', correct: true},
+            {text: 'Pawn', correct: false}
+        ]
+    },
+    {
+        question: 'What cooking term means to submerge food very quickly in boiling water?',
+        // Array of Answers
+        answers: [
+            {text: 'Sous vide', correct: false},
+            {text: 'Poach', correct: false},
+            {text: 'Blanche', correct: true},
+            {text: 'Broil', correct: false}
+        ]
+    },
+    {
+        question: 'Papa John\'s is a fast-food chain serving which food?',
+        // Array of Answers
+        answers: [
+            {text: 'Tacos', correct: false},
+            {text: 'Pizza', correct: true},
+            {text: 'Chicken', correct: false},
+            {text: 'Burgers', correct: false}
+        ]
+    },
+    {
+        question: 'In which language does \'Konnichi Wa\' mean hello?',
+        // Array of Answers
+        answers: [
+            {text: 'Korean', correct: false},
+            {text: 'Chinese', correct: false},
+            {text: 'Thai', correct: false},
+            {text: 'Japanese', correct: true}
+        ]
+    },
+    {
+        question: 'Photophobia is extreme sensitivity to what?',
+        // Array of Answers
+        answers: [
+            {text: 'Diamonds', correct: false},
+            {text: 'Money', correct: false},
+            {text: 'Oil', correct: false},
+            {text: 'Gold', correct: true}
+        ]
+    },
+    {
+        question: 'What was stored in Fort Knox?',
+        // Array of Answers
+        answers: [
+            {text: 'Goldendoodle', correct: true},
+            {text: 'Labrador', correct: false},
+            {text: 'Corgi ', correct: false},
+            {text: 'Cane Corso', correct: false}
+        ]
+    },
+    {
+        question: 'Which crystal is put in watches to help them keep time?',
+        // Array of Answers
+        answers: [
+            {text: 'Citrine', correct: false},
+            {text: 'Amethyst', correct: false},
+            {text: 'Quartz', correct: true},
+            {text: 'Onyx ', correct: false}
+        ]
+    },
+    {
+        question: 'According to the saying, you shouldn\'t put all of which food in one basket?',
+        // Array of Answers
+        answers: [
+            {text: 'Apples', correct: false},
+            {text: 'Onions', correct: false},
+            {text: 'Eggs', correct: true},
+            {text: 'Potatoes', correct: false}
+        ]
+    },
+    {
+        question: 'Which color of cat is associated with witches?',
+        // Array of Answers
+        answers: [
+            {text: 'Calico', correct: false},
+            {text: 'White', correct: false},
+            {text: 'Ginger', correct: false},
+            {text: 'Black', correct: true}
+        ]
+    },
+    {
+        question: 'The movie \'Walk the Line\' is about which singer?',
+        // Array of Answers
+        answers: [
+            {text: 'Bob Dylan', correct: false},
+            {text: 'Johnny Cash', correct: true},
+            {text: 'Tom Petty', correct: false},
+            {text: 'Roy Orbison', correct: false}
+        ]
+    },
+    {
+        question: 'Shrek in the movies was which type of mythical creature?',
+        // Array of Answers
+        answers: [
+            {text: 'Portrait', correct: false},
+            {text: 'Dragon', correct: false},
+            {text: 'Ogre', correct: true},
+            {text: 'Gargoyle', correct: false}
+        ]  
+    },
+    {
+        question: 'A painting of a countryside scene has which name?',
+        // Array of Answers
+        answers: [
+            {text: 'Portrait', correct: false},
+            {text: 'Abstract', correct: false},
+            {text: 'Landscape', correct: true},
+            {text: 'Minimalism', correct: false}
+        ]
+    },
+    {
+        question: 'Which name is given to a group of crows?',
+        // Array of Answers
+        answers: [
+            {text: 'Flock', correct: false},
+            {text: 'Murder', correct: true},
+            {text: 'School', correct: false},
+            {text: 'Herd', correct: false}
+        ]
+    },
+    {
+        question: 'What do dog sled drivers shout to get the dogs to run quicker?',
+        // Array of Answers
+        answers: [
+            {text: 'Mush!', correct: true},
+            {text: 'Faster!', correct: false},
+            {text: 'Go!', correct: false},
+            {text: 'Move it!', correct: false}
+        ]
+    },
+    {
+        question: 'In Scotland, what is a loch?',
+        // Array of Answers
+        answers: [
+            {text: 'Pond', correct: false},
+            {text: 'River', correct: false},
+            {text: 'Stream', correct: false},
+            {text: 'Lake', correct: true}
+        ]
+    },
+    {
+        question: 'Documentary \'Super-Size Me\' was about which fast food chain?',
+        // Array of Answers
+        answers: [
+            {text: 'Dairy Queen', correct: false},
+            {text: 'Burger King', correct: false},
+            {text: 'McDonald’s', correct: true},
+            {text: 'Sonic', correct: false}
+        ]
+    },
+    {
+        question: 'Call me Ishmael\' is the first line of which novel?',
+        // Array of Answers
+        answers: [
+            {text: 'Grapes of Wrath', correct: false},
+            {text: 'To Kill a Mockingbird', correct: false},
+            {text: 'The Tale of Two Cities', correct: false},
+            {text: 'Moby Dick ', correct: true}
+        ]
+    },
+    {
+        question: 'Ancient Greek myth said that which man carried the world on his shoulders?',
+        // Array of Answers
+        answers: [
+            {text: 'Hermes', correct: false},
+            {text: 'Artemis', correct: false},
+            {text: 'Atlas', correct: true},
+            {text: 'Achilles', correct: false}
+        ]  
+    },
+    {
+        question: 'Who was the first female US Secretary of State?',
+        // Array of Answers
+        answers: [
+            {text: 'Madeleine Albright', correct: true},
+            {text: 'Nancy Pelosi', correct: false},
+            {text: 'Kamala Harris', correct: false},
+            {text: 'Stacy Abrahams', correct: false}
+        ]
+    },
+    {
+        question: 'Which food is a Scotch Bonnet?',
+        // Array of Answers
+        answers: [
+            {text: 'Fruit', correct: false},
+            {text: 'Chili', correct: true},
+            {text: 'Pastry', correct: false},
+            {text: 'Pasta', correct: false}
+        ]   
+    },
+    {
+        question: 'What is the usual setting for John Grisham\'s novels?',
+        // Array of Answers
+        answers: [
+            {text: 'Hospital', correct: false},
+            {text: 'Corporate Office', correct: false},
+            {text: 'School', correct: false},
+            {text: 'Courtroom', correct: true}
+        ]
+    },
+    {
+        question: 'April, June, September, and which other month only have 30 days?',
+        // Array of Answers
+        answers: [
+            {text: 'July', correct: false},
+            {text: 'May', correct: false},
+            {text: 'November', correct: true},
+            {text: 'August', correct: false}
         ]
     }
 
