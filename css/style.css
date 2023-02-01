@@ -1,7 +1,7 @@
 /* Global */
 /* ------------------------------------ */
 * , *::before, *::after {
-    outline: 1px dotted red;
+    /* outline: 1px dotted red; */
     box-sizing: border-box;
 }
 
@@ -13,6 +13,7 @@
     color: whitesmoke;
     background-color: #b26a50;
     font-family: 'Lato', sans-serif;
+    border-bottom: 5px solid whitesmoke;
 }
 
 #regTradeMark{
@@ -29,6 +30,12 @@
 
 /* Body */
 /* ------------------------------------ */
+#question {
+    font-size: 36px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
 body {
     --hue: var(--hue-neutral);
     padding: 0;
@@ -51,15 +58,16 @@ body.wrong{
 }
 
 
+
 /* Gameboard */
 /* ------------------------------------ */
 #gameBoard {
     --hue: var(--hue-neutral);
-    margin-top: 5%;
-    margin-bottom: 6%;
+    margin-top: 3%;
+    margin-bottom: 3%;
     width: 800px;
     max-width: 80%;
-    height: 600px;
+    height: 700px;
     top: 50%;
     position: relative;
     background-color: white;
@@ -67,6 +75,17 @@ body.wrong{
     padding: 10px;
     box-shadow: 0 0 10px 2px;
     /* background-color: hsl(var(--hue), 100%, 20%); */
+}
+
+img {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 755px;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 /* ------------------------------------ */
@@ -166,4 +185,5 @@ body.wrong{
     color: whitesmoke;
     background-color: #b26a50;
     font-family: 'Lato', sans-serif;
+    border-top: 5px solid whitesmoke;
 }
