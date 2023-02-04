@@ -15,7 +15,7 @@ const answerButtonsElement = document.getElementById('answerButtons');
 let shuffledQuestions, currentQuestionIndex; //Init
 
 const audioCorrect = document.getElementById('audioCorrect');
-const audioWrong = document.getElementById('audioWrong');
+// const audioWrong = document.getElementById('audioWrong');
 
 // Event Listener for Start Button
 // -----------------------------------------------------
@@ -101,6 +101,7 @@ function selectAnswer(e) {
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct;
     setStatusClass(document.body, correct)
+    // Loop through the buttons to set the status of the button
     
     // 
     Array.from(answerButtonsElement.children).forEach(button => {
@@ -487,53 +488,53 @@ const questions = [
         ]
     },
     {
-        question: 'Question 35',
+        question: 'Speedy Gonzales is which type of cartoon creature?',
         // Array of Answers
         answers: [
-            {text: 'Polar Bear', correct: false},
-            {text: 'Panda', correct: false},
-            {text: 'Penguin', correct: true},
-            {text: 'Pig', correct: false}
+            {text: 'Cat', correct: false},
+            {text: 'Dog', correct: false},
+            {text: 'Mouse', correct: true},
+            {text: 'Horse', correct: false}
         ]
     },
     {
-        question: 'Question 36',
+        question: 'Benjamin Franklin is said to have created which piece of furniture?',
         // Array of Answers
         answers: [
-            {text: 'Polar Bear', correct: false},
-            {text: 'Panda', correct: false},
-            {text: 'Penguin', correct: true},
-            {text: 'Pig', correct: false}
+            {text: 'Rocking chair', correct: true},
+            {text: 'Platform bed', correct: false},
+            {text: 'Chaise lounge', correct: false},
+            {text: 'Recliner', correct: false}
         ]
     },
     {
-        question: 'Question 37',
+        question: 'Thriller\' was a worldwide hit in 1984 for which artist?',
         // Array of Answers
         answers: [
-            {text: 'Polar Bear', correct: false},
-            {text: 'Panda', correct: false},
-            {text: 'Penguin', correct: true},
-            {text: 'Pig', correct: false}
+            {text: 'Elton John', correct: false},
+            {text: 'Michael Jackson', correct: true},
+            {text: 'George Michael', correct: false},
+            {text: 'Prince', correct: false}
         ]
     },
     {
-        question: 'Question 38',
+        question: 'What is the first name of the French painter Cezanne?',
         // Array of Answers
         answers: [
-            {text: 'Polar Bear', correct: false},
-            {text: 'Panda', correct: false},
-            {text: 'Penguin', correct: true},
-            {text: 'Pig', correct: false}
+            {text: 'James', correct: false},
+            {text: 'George', correct: false},
+            {text: 'Steve', correct: false},
+            {text: 'Paul', correct: true}
         ]
     },
     {
-        question: 'Question 39',
+        question: 'Which country\'s film industry is known as \'Bollywood\'?',
         // Array of Answers
         answers: [
-            {text: 'Polar Bear', correct: false},
-            {text: 'Panda', correct: false},
-            {text: 'Penguin', correct: true},
-            {text: 'Pig', correct: false}
+            {text: 'Nigeria', correct: false},
+            {text: 'India', correct: true},
+            {text: 'Mumbai', correct: false},
+            {text: 'Punjabi', correct: false}
         ]
     },
     {
