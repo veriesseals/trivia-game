@@ -14,10 +14,13 @@ const answerButtonsElement = document.getElementById('answerButtons');
 // Will Default to Undefined
 let shuffledQuestions, currentQuestionIndex; //Init
 
+const audioCorrect = document.getElementById('audioCorrect');
+const audioWrong = document.getElementById('audioWrong');
+
 // Event Listener for Start Button
 // -----------------------------------------------------
 
-// Event Listener for Start Button
+// Event Listener for Start Button to start the game
 startButton.addEventListener('click', startGame);
 // -----------------------------------------------------
 // Event Listener for Next Button
@@ -69,9 +72,11 @@ function showQuestion(question) {
         }
         // Add Eventlistener for selectAnswer
         button.addEventListener('click', selectAnswer);
+
         // Append buttons that was just created
         answerButtonsElement.appendChild(button);
     });
+
 
 }
 
@@ -96,6 +101,7 @@ function selectAnswer(e) {
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct;
     setStatusClass(document.body, correct)
+    
     // 
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
@@ -112,14 +118,19 @@ function selectAnswer(e) {
     }
 } 
 
-// Fuction Check to see if Answer is correct
-function setStatusClass(element, correct){
+// Function Check to see if Answer is correct
+// --------------------------------------------------
+function setStatusClass(element, correct) {
     clearStatusClass(element)
     if (correct) {
         element.classList.add('correct');
+        // Audio for Correct Answer
+        audioCorrect.play();
     }
     else {
         element.classList.add('wrong');
+        // Audio for Wrong Answer (BUG🐞)
+        // audioWrong.play();
     }
 
 }
@@ -128,8 +139,12 @@ function clearStatusClass (element) {
     element.classList.remove('correct');
     element.classList.remove('wrong');
 }
+
+
 // Create Questions by using arrays and objects
 // Array of Questions
+// ---------------------------------------------------------------------
+
 const questions = [
     {
         question: 'Norma Jean Mortenson was the birth name of which movie star?',
@@ -212,7 +227,7 @@ const questions = [
         ]
     },
     {
-        question: 'Only one chess piece can only move diagonally - which is it?',
+        question: 'One chess piece can only move diagonally - which is it?',
         // Array of Answers
         answers: [
             {text: 'Knight', correct: false},
@@ -255,20 +270,20 @@ const questions = [
         question: 'Photophobia is extreme sensitivity to what?',
         // Array of Answers
         answers: [
-            {text: 'Diamonds', correct: false},
-            {text: 'Money', correct: false},
-            {text: 'Oil', correct: false},
-            {text: 'Gold', correct: true}
+            {text: 'Light', correct: true},
+            {text: 'Sound', correct: false},
+            {text: 'Rain', correct: false},
+            {text: 'Heat', correct: false}
         ]
     },
     {
         question: 'What was stored in Fort Knox?',
         // Array of Answers
         answers: [
-            {text: 'Goldendoodle', correct: true},
-            {text: 'Labrador', correct: false},
-            {text: 'Corgi ', correct: false},
-            {text: 'Cane Corso', correct: false}
+            {text: 'Diamonds', correct: false},
+            {text: 'Money', correct: false},
+            {text: 'Oil', correct: false},
+            {text: 'Gold', correct: true}
         ]
     },
     {
@@ -312,10 +327,10 @@ const questions = [
         ]
     },
     {
-        question: 'Shrek in the movies was which type of mythical creature?',
+        question: 'In the movie Shrek which type of mythical creature is he?',
         // Array of Answers
         answers: [
-            {text: 'Portrait', correct: false},
+            {text: 'Fairy', correct: false},
             {text: 'Dragon', correct: false},
             {text: 'Ogre', correct: true},
             {text: 'Gargoyle', correct: false}
@@ -362,7 +377,7 @@ const questions = [
         ]
     },
     {
-        question: 'Documentary \'Super-Size Me\' was about which fast food chain?',
+        question: 'The documentary \'Super-Size Me\' was about which fast food chain?',
         // Array of Answers
         answers: [
             {text: 'Dairy Queen', correct: false},
@@ -402,7 +417,7 @@ const questions = [
         ]
     },
     {
-        question: 'Which food is a Scotch Bonnet?',
+        question: 'Which type of food is a Scotch Bonnet?',
         // Array of Answers
         answers: [
             {text: 'Fruit', correct: false},
@@ -422,13 +437,313 @@ const questions = [
         ]
     },
     {
-        question: 'April, June, September, and which other month only have 30 days?',
+        question: 'The months of April, June, and September have 30 days which other month only has 30 days?',
         // Array of Answers
         answers: [
             {text: 'July', correct: false},
             {text: 'May', correct: false},
             {text: 'November', correct: true},
             {text: 'August', correct: false}
+        ]
+    },
+    {
+        question: 'With whom did Lionel Richie co-write the \'80s hit song for Africa, \'We Are the World\'?',
+        // Array of Answers
+        answers: [
+            {text: 'Michael Jackson', correct: true},
+            {text: 'Prince', correct: false},
+            {text: 'Paul McCartney', correct: false},
+            {text: 'David Bowie', correct: false}
+        ]
+    },
+    {
+        question: 'Which James Bond actor known for his distinctive voice died in 2020?',
+        // Array of Answers
+        answers: [
+            {text: 'Timothy Dalton', correct: false},
+            {text: 'Pierce Brosnan', correct: false},
+            {text: 'Daniel Craig', correct: false},
+            {text: 'Sean Connery ', correct: true}
+        ]
+    },
+    {
+        question: 'Greek salad contains which cheese?',
+        // Array of Answers
+        answers: [
+            {text: 'Gorgonzola', correct: false},
+            {text: 'Feta', correct: true},
+            {text: 'Mozzarella', correct: false},
+            {text: 'Cheddar', correct: false}
+        ]
+    },
+    {
+        question: 'Which color of the moon means once in a very long time?',
+        // Array of Answers
+        answers: [
+            {text: 'Yellow', correct: false},
+            {text: 'Red', correct: false},
+            {text: 'Blue', correct: true},
+            {text: 'Orange', correct: false}
+        ]
+    },
+    {
+        question: 'Question 35',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 36',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 37',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 38',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 39',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 40',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 41',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 42',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 43',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 44',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 45',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 46',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 47',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 48',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 49',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 50',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 51',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 52',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 53',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 54',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 55',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 56',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 57',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 58',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 59',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
+        ]
+    },
+    {
+        question: 'Question 60',
+        // Array of Answers
+        answers: [
+            {text: 'Polar Bear', correct: false},
+            {text: 'Panda', correct: false},
+            {text: 'Penguin', correct: true},
+            {text: 'Pig', correct: false}
         ]
     }
 
