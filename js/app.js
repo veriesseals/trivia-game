@@ -79,7 +79,6 @@ function showQuestion(question) {
         answerButtonsElement.appendChild(button);
     });
 
-
 }
 
 // Scoreboard
@@ -91,8 +90,8 @@ score += 0;
 
 scoreDisplay.innerText = score;
 
-function answerQuestion(isCorrect) {
-    if (isCorrect === answer.correct) {
+function answerQuestion() {
+    if (answer.correct) {
         score += 3;
     }
     scoreDisplay.innerText = score;
